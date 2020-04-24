@@ -27,4 +27,4 @@ An additional potentiometer on the shaft of the pusher arm provides an absolute 
 
 
 # References
-Husseini, Abdul & Lee, Heon Ju & Negrete, Justin & Powelson, Stephen & Servi, Amelia & Slocum, Alexander & Saukkonen, Jussi. (2010). Design and Prototyping of a Low-Cost Portable Mechanical Ventilator. Journal of Medical Devices-transactions of The Asme. 4. 10.1115/1.3442790. 
+Husseini, Abdul & Lee, Heon Ju & Negrete, Justin & Powelson, Stephen & Servi, Amelia & Slocum, Alexander & Saukkonen, Jussi. (2010). Design and Prototyping of a Low-Cost Portable Mechanical Ventilator. ASME Journal of Medical Devices 4(2), June 2010. DOI [10.1115/1.3442790](https://dx.doi.org/10.1115/1.3442790). 
