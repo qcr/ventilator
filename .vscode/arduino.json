@@ -1,0 +1,8 @@
+{
+    "board": "arduino:avr:mega",
+    "configuration": "cpu=atmega2560",
+    "port": "COM5",
+    "sketch": "arduino\\ventilator\\ventilator.ino",
+    "programmer": "ArduinoISP",
+    "output": "../build"
+}
