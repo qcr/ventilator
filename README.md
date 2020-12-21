@@ -1,7 +1,7 @@
 # Introduction
 
-In response to the COVID-19 crisis the QUT Centre for Robotics developed a simple and low-cost mechanical ventilator and tested its operation on live
-pigs [2].
+In response to the COVID-19 crisis the QUT Centre for Robotics, in March/April 2020, developed a simple and low-cost mechanical ventilator.
+The efficacy of the ventilator was tested on live pigs [2] who showed no adverse effects compared to a standard ventilator.
 
 ![Fig 2 from reference](figures/13104_2020_5259_Fig2_HTML.jpg)
 
