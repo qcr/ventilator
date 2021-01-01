@@ -42,11 +42,16 @@ However, the two material (PLA and ABS) failures demonstrated important limitati
 
 # Mark 2 ventilator
 
+The design aims were to:
 
+* redesign the gears to ensure that tooth forces were within the material limits,
+* dramatically reduce the manufacturing time
 
-The design aims were to redesign the gears to ensure that tooth forces were within the material limits, to use a heat resistant material and to reduce the manufacturing and assembly time.  The gears were made from Nylon (cut from 12 mm sheet using CNC router) for its thermal and mechanical advantages over PLA and (ABS).  The gears are each made from a stack of two 12 mm thick cut pieces, giving a gear width of 24mm compared to 18mm for the PLA gears in version 1.
+We solved both problems by building the Mark 2 machine almost entirely from Nylon (cut from 12 mm sheet using CNC router).  
+While Nylon can be 3D printed, we cut the gears from 12mm sheet using a CNC router (Multicam) although waterjet cutting could also be used.  This fabrication approach allowed us to fabricate the entire machine from 12mm Nylon parts and these were be cut in a single operation, see Figure 1, in around 45 minutes.  The parts were assembled in an hour to yield the machine shown below.
 
-While Nylon can be 3D printed, we cut the gears from 12mm sheet using a CNC router (Multicam) although waterjet cutting could also be used.  This fabrication approach allowed us to fabricate the entire machine from 12mm Nylon parts and these were be cut in a single operation, see Figure 1, in around 45 minutes.  The parts were assembled in an hour to yield this machine
+The gears are each made from a stack of two 12 mm thick cut pieces, giving a gear width of 24mm compared to 18mm for the PLA gears in version 1. The increased gear width, and redesigned teeth, reduces the tooth stress.  Combined with the heat resistance and mechanical advantages of Nylon over PLA and (ABS) this resulted in a realiable and long-lasting drive system.
+
 
 ![Mark 2 ventilator, with ventilator bag](figures/image4.jpeg)
 
@@ -54,13 +59,14 @@ The cut file for the Nylon sheet is
 
 ![Mark 2 ventilator, nylon sheet cut file](figures/image2.png)
 
-![Mark 2 ventilator, CAD rendering](figures/image6.png)
+A CAD render of the assembled Nylon components (and feedback potentiometer) is
 
+![Mark 2 ventilator, CAD rendering](figures/image6.png)
 
 
 # Control software
 
-The software allows control of three ventilation parameters: breaths per minute (BPM), inspiration/expiration ratio (IE), and breath volume.  We implement an inspiration time but this is fixed in the program and not currently adjustable by the clinician. We control the pusher arm to rotate at constant velocity during the inspiration time upto a maximum stroke which is a function of the required breath volume.  The arm is held for a constant time, and then retracted quickly allowing the bag to reinflate by itself.
+The software allows control of three ventilation parameters: breaths per minute (BPM), inspiration/expiration ratio (IE), and tidal (breath) volume.  We implement an inspiration hold time but this is fixed in the program and not currently adjustable by the clinician. We control the pusher arm to rotate at constant velocity during the inspiration time upto a maximum stroke which is a function of the required tidal volume.  The arm is held for a constant time, and then retracted quickly allowing the bag to reinflate by itself.
 
 The control parameters are set by three potentiometers connected to analog inputs of the microcontroller.  They are digitized, rescaled and displayed continuously on the LCD panel. At the start of a cycle a snapshot of these parameters is made and used to compute the inspiration time, expiration time and the maximum stroke.  The controller then drives the pusher at the required speed for the required time, holds, and then retracts.
 
@@ -69,6 +75,8 @@ The inclusion of an inspiration hold time means that for some settings of IE and
 The relationship between maximum rotation of the arm and supplied volume was calibrated for five points and incorporated into a lookup table in the control firmware.
 
 An additional potentiometer on the shaft of the pusher arm provides an absolute and continuous measurement of the rotation angle of the pusher arm.  We use a stepper motor but for large volume and high PEEP we observe that the motor may lose steps so we cannot rely simply on step counting.
+
+For safety an independent microprocessor should monitor this potentiometer output to determine whether its amplitude and frequency is within bounds.
 
 
 # References
